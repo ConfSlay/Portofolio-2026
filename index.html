@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header id="hero" class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-name"></h1>
+      <p class="hero-title"></p>
+      <p class="hero-tagline"></p>
+      <nav class="hero-contact" aria-label="Contact"></nav>
+      <a class="hero-cta" href="#timeline">View projects <span class="arrow">&#8595;</span></a>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true"><span></span></div>
+  </header>
+
+  <main>
+    <section id="about" class="about">
+      <div class="about-inner">
+        <div class="about-image"></div>
+        <div class="about-text"></div>
+      </div>
+    </section>
+
+    <section id="timeline" class="timeline-section">
+      <h2 class="section-title">// projects</h2>
+      <div class="timeline">
+        <div class="timeline-line" aria-hidden="true"></div>
+        <div class="timeline-progress" aria-hidden="true"></div>
+        <div class="timeline-items"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> &mdash; Built with obsession</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

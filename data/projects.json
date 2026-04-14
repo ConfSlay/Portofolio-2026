@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "name": "Richard PERRET",
+    "title": "Fullstack Developer",
+    "tagline": "",
+    "contact": {
+      "email": "perretrichard1996@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/richardperret"
+    }
+  },
+  "about": {
+    "text": "Fullstack developer obsessed with distributed architectures and interfaces that punch. I enjoy optimizing a SQL query as much as polishing a CSS animation. Currently shipping production systems and sharpening the edges.",
+    "image": "assets/images/about.svg"
+  },
+  "projects": [
+    {
+      "id": "nexus-api",
+      "title": "NEXUS API",
+      "date": "2026",
+      "tags": ["Node.js", "GraphQL", "PostgreSQL", "WebSocket"],
+      "description": "Real-time API orchestration platform. Event-driven architecture with intelligent rate limiting and built-in monitoring dashboard.",
+      "color": "#00f0ff",
+      "video": "assets/videos/nexus-api.webm",
+      "poster": "assets/images/nexus-api.svg",
+      "link": "https://github.com/johnconnor/nexus-api"
+    },
+    {
+      "id": "void-runner",
+      "title": "VOID RUNNER",
+      "date": "2025",
+      "tags": ["Rust", "WebAssembly", "Canvas"],
+      "description": "WASM-powered terminal emulator running in the browser. Sub-millisecond input latency and a custom rendering pipeline on Canvas 2D.",
+      "color": "#ff00e5",
+      "video": "assets/videos/void-runner.webm",
+      "poster": "assets/images/void-runner.svg",
+      "link": "https://github.com/johnconnor/void-runner"
+    },
+    {
+      "id": "pulse-grid",
+      "title": "PULSE GRID",
+      "date": "2024",
+      "tags": ["Go", "Kubernetes", "gRPC", "Prometheus"],
+      "description": "Distributed metrics aggregation engine deployed across 12 regions. Handles 2M events/sec with sub-second query latency.",
+      "color": "#39ff14",
+      "video": "assets/videos/pulse-grid.webm",
+      "poster": "assets/images/pulse-grid.svg",
+      "link": "https://github.com/johnconnor/pulse-grid"
+    },
+    {
+      "id": "ghost-shell",
+      "title": "GHOST SHELL",
+      "date": "2023",
+      "tags": ["Python", "TUI", "asyncio"],
+      "description": "Async terminal UI framework for ops tooling. Zero-dependency, composable widgets, theme engine with live reload.",
+      "color": "#b026ff",
+      "video": "assets/videos/ghost-shell.webm",
+      "poster": "assets/images/ghost-shell.svg",
+      "link": "https://github.com/johnconnor/ghost-shell"
+    }
+  ]
+}

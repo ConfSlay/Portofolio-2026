@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import json; json.load\\(open\\('data/projects.json'\\)\\)\")",
+      "Bash(chmod +x \"/c/Users/perre/Code/Portofolio/start.sh\")"
+    ]
+  }
+}
