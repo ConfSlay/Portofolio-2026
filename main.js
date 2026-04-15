@@ -41,17 +41,39 @@
     });
 
     document.title = `${meta.name} — ${meta.title}`;
+
+    renderMosaic(meta.mosaic);
+  }
+
+  function renderMosaic(tiles) {
+    const mosaic = document.querySelector('.hero-mosaic');
+    if (!mosaic) return;
+    if (!tiles || !tiles.length) { mosaic.remove(); return; }
+
+    tiles.forEach(t => {
+      const tile = el('div', { className: `m-tile size-${t.size || 'square'}` });
+      const isVideo = t.type === 'video' || /\.(webm|mp4)$/i.test(t.src || '');
+      if (isVideo) {
+        const v = el('video', {
+          muted: true, loop: true, playsInline: true, autoplay: true,
+          preload: 'metadata', poster: t.poster || ''
+        });
+        v.appendChild(el('source', { src: t.src }));
+        tile.appendChild(v);
+      } else {
+        tile.appendChild(el('img', { src: t.src, alt: t.alt || '', loading: 'lazy' }));
+      }
+      mosaic.appendChild(tile);
+    });
   }
 
   function renderAbout(about) {
-    if (!about) return;
     const img = document.querySelector('.about-image');
-    if (about.image) {
-      img.appendChild(el('img', { src: about.image, alt: '' }));
-    } else {
-      img.remove();
-    }
-    document.querySelector('.about-text').textContent = about.text || '';
+    const text = document.querySelector('.about-text');
+    if (!img || !text) return;
+    if (about?.image) img.appendChild(el('img', { src: about.image, alt: '' }));
+    else img.remove();
+    text.textContent = about?.text || '';
   }
 
   function createProjectCard(p) {

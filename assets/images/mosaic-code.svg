@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0d0d18"/>
+      <stop offset="1" stop-color="#141424"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <g font-family="ui-monospace, monospace" font-size="18" fill="#a0a0b0">
+    <text x="60" y="90" fill="#55556b">01</text>
+    <text x="110" y="90" fill="#c4b5fd">const</text>
+    <text x="190" y="90" fill="#7dd3fc">build</text>
+    <text x="270" y="90" fill="#55556b">=</text>
+    <text x="295" y="90" fill="#a0a0b0">async</text>
+    <text x="370" y="90" fill="#55556b">()</text>
+    <text x="400" y="90" fill="#55556b">=&gt;</text>
+    <text x="440" y="90" fill="#55556b">{</text>
+
+    <text x="60" y="130" fill="#55556b">02</text>
+    <text x="130" y="130" fill="#f0abfc">await</text>
+    <text x="210" y="130" fill="#7dd3fc">ship</text>
+    <text x="275" y="130" fill="#55556b">(</text>
+    <text x="285" y="130" fill="#86efac">'production'</text>
+    <text x="445" y="130" fill="#55556b">);</text>
+
+    <text x="60" y="170" fill="#55556b">03</text>
+    <text x="130" y="170" fill="#a0a0b0">return</text>
+    <text x="220" y="170" fill="#86efac">{ ok: true };</text>
+
+    <text x="60" y="210" fill="#55556b">04</text>
+    <text x="110" y="210" fill="#55556b">};</text>
+  </g>
+  <rect x="0" y="240" width="800" height="1" fill="#2a2a3c"/>
+  <text x="60" y="280" font-family="Inter, sans-serif" font-size="14" fill="#55556b" letter-spacing="3">// SHIPPING</text>
+</svg>

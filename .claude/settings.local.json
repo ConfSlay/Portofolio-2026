@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(python -c \"import json; json.load\\(open\\('data/projects.json'\\)\\)\")",
-      "Bash(chmod +x \"/c/Users/perre/Code/Portofolio/start.sh\")"
+      "Bash(chmod +x \"/c/Users/perre/Code/Portofolio/start.sh\")",
+      "Bash(python -c \"import json; d=json.load\\(open\\('data/projects.json'\\)\\); print\\('mosaic:', len\\(d['meta']['mosaic']\\), 'tiles'\\)\")",
+      "Bash(python -c \"import json; d=json.load\\(open\\('data/projects.json'\\)\\); print\\('mosaic' in d['meta'], len\\(d['meta'].get\\('mosaic',[]\\)\\)\\)\")",
+      "Bash(mv nexus-api.svg agentic.svg)",
+      "Bash(mv void-runner.svg arya.svg)",
+      "Bash(mv pulse-grid.svg portail.svg)",
+      "Bash(mv ghost-shell.svg reference.svg)",
+      "Bash(ls *.svg)",
+      "Bash(python -c \"import json; d=json.load\\(open\\('data/projects.json'\\)\\); print\\('OK:', len\\(d['projects']\\), 'projects'\\)\")"
     ]
   }
 }

@@ -1,61 +1,59 @@
 {
   "meta": {
     "name": "Richard PERRET",
-    "title": "Fullstack Developer",
-    "tagline": "",
+    "title": "Software Engineer",
+    "tagline": "Turning real-world needs into scalable technical architectures — tech enthusiast, sports lover, problem solver",
     "contact": {
       "email": "perretrichard1996@gmail.com",
       "linkedin": "https://www.linkedin.com/in/richardperret"
-    }
-  },
-  "about": {
-    "text": "Fullstack developer obsessed with distributed architectures and interfaces that punch. I enjoy optimizing a SQL query as much as polishing a CSS animation. Currently shipping production systems and sharpening the edges.",
-    "image": "assets/images/about.svg"
+    },
+    "mosaic": [
+      { "src": "assets/images/japan-picture.png", "size": "hero", "alt": "Japan" },
+      { "src": "assets/images/marathon-picture.jpg", "size": "square", "alt": "Marathon" },
+      { "src": "assets/images/profile-picture.jpeg", "size": "square", "alt": "ProfilePicture" },
+      { "src": "assets/videos/fullplanche-pushup.mp4", "size": "wide", "alt": "FullPlanchePushUp" }
+    ]
   },
   "projects": [
     {
-      "id": "nexus-api",
-      "title": "NEXUS API",
+      "id": "agentic-platform",
+      "title": "Agentic AI Platform",
       "date": "2026",
-      "tags": ["Node.js", "GraphQL", "PostgreSQL", "WebSocket"],
-      "description": "Real-time API orchestration platform. Event-driven architecture with intelligent rate limiting and built-in monitoring dashboard.",
-      "color": "#00f0ff",
-      "video": "assets/videos/nexus-api.webm",
-      "poster": "assets/images/nexus-api.svg",
-      "link": "https://github.com/johnconnor/nexus-api"
+      "tags": ["React", "TypeScript", "FastAPI", "PostgreSQL", "ChromaDB", "SSE"],
+      "description": "Agentic loop architecture with real-time SSE streaming, dynamic context window management, and a configurable tool factory. Hybrid RAG over Google Docs with chunked embeddings and semantic search. Parallel tool execution, trilingual UI (FR/EN/ES).",
+      "color": "#7dd3fc",
+      "video": "assets/videos/agentic.webm",
+      "poster": "assets/images/agentic.svg"
     },
     {
-      "id": "void-runner",
-      "title": "VOID RUNNER",
+      "id": "arya",
+      "title": "Arya",
       "date": "2025",
-      "tags": ["Rust", "WebAssembly", "Canvas"],
-      "description": "WASM-powered terminal emulator running in the browser. Sub-millisecond input latency and a custom rendering pipeline on Canvas 2D.",
-      "color": "#ff00e5",
-      "video": "assets/videos/void-runner.webm",
-      "poster": "assets/images/void-runner.svg",
-      "link": "https://github.com/johnconnor/void-runner"
+      "tags": ["React Native", "Expo", "TypeScript", "NativeWind", "Flask", "PostgreSQL"],
+      "description": "Cross-platform mobile app for sports coaching and performance tracking across any discipline. Personalized workouts, metrics, and progression follow-up.",
+      "color": "#f0abfc",
+      "video": "assets/videos/arya.webm",
+      "poster": "assets/images/arya.svg"
     },
     {
-      "id": "pulse-grid",
-      "title": "PULSE GRID",
+      "id": "portail",
+      "title": "Portail",
       "date": "2024",
-      "tags": ["Go", "Kubernetes", "gRPC", "Prometheus"],
-      "description": "Distributed metrics aggregation engine deployed across 12 regions. Handles 2M events/sec with sub-second query latency.",
-      "color": "#39ff14",
-      "video": "assets/videos/pulse-grid.webm",
-      "poster": "assets/images/pulse-grid.svg",
-      "link": "https://github.com/johnconnor/pulse-grid"
+      "tags": ["Python", "Flask", "SQLAlchemy", "MySQL", "Redis", "TypeScript", "Lit.js"],
+      "description": "Centralized internal web app: client/internal project management, contracts, billing, HR, helpdesk, internal comms. Modular architecture with granular per-role/per-module permissions. Redis caching, query tuning, N+1 elimination.",
+      "color": "#86efac",
+      "video": "assets/videos/portail.webm",
+      "poster": "assets/images/portail.svg"
     },
     {
-      "id": "ghost-shell",
-      "title": "GHOST SHELL",
+      "id": "reference",
+      "title": "Reference",
       "date": "2023",
-      "tags": ["Python", "TUI", "asyncio"],
-      "description": "Async terminal UI framework for ops tooling. Zero-dependency, composable widgets, theme engine with live reload.",
-      "color": "#b026ff",
-      "video": "assets/videos/ghost-shell.webm",
-      "poster": "assets/images/ghost-shell.svg",
-      "link": "https://github.com/johnconnor/ghost-shell"
+      "tags": ["Python", "FastAPI", "SQLAlchemy", "Alembic", "MySQL", "Pydantic", "JWT"],
+      "description": "Reference REST API powering the internal information system (~30 ORM models, 38 route modules). i18n support, soft deletes, React Admin integration with Content-Range pagination. Full CI/CD with flake8, mypy, pytest, Trivy.",
+      "color": "#c4b5fd",
+      "video": "assets/videos/reference.webm",
+      "poster": "assets/images/reference.svg"
     }
   ]
 }

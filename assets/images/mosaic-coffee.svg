@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1418"/>
+      <stop offset="1" stop-color="#0a0a14"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="0.5" cy="0.35" r="0.5">
+      <stop offset="0" stop-color="#f0abfc" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#f0abfc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="800" fill="url(#bg)"/>
+  <rect width="400" height="800" fill="url(#warm)"/>
+  <g opacity="0.5" stroke="#a0a0b0" stroke-width="2" stroke-linecap="round" fill="none">
+    <path d="M 180 200 Q 170 180 180 160 Q 190 140 180 120"/>
+    <path d="M 200 200 Q 190 180 200 160 Q 210 140 200 120"/>
+    <path d="M 220 200 Q 210 180 220 160 Q 230 140 220 120"/>
+  </g>
+  <path d="M 140 260 L 140 440 Q 140 470 170 470 L 230 470 Q 260 470 260 440 L 260 260 Z" fill="#2a2a3c" stroke="#3a3a4c" stroke-width="2"/>
+  <path d="M 260 300 Q 300 300 300 340 Q 300 380 260 380" fill="none" stroke="#3a3a4c" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="200" cy="260" rx="60" ry="10" fill="#55556b"/>
+  <ellipse cx="200" cy="258" rx="50" ry="6" fill="#8a6a4a"/>
+  <text x="200" y="560" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" fill="#55556b" letter-spacing="4">FUEL</text>
+</svg>
