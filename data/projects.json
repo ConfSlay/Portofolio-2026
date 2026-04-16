@@ -36,24 +36,14 @@
       "poster": "assets/images/arya.svg"
     },
     {
-      "id": "portail",
-      "title": "Portail",
-      "date": "2024",
-      "tags": ["Python", "Flask", "SQLAlchemy", "MySQL", "Redis", "TypeScript", "Lit.js"],
-      "description": "Centralized internal web app: client/internal project management, contracts, billing, HR, helpdesk, internal comms. Modular architecture with granular per-role/per-module permissions. Redis caching, query tuning, N+1 elimination.",
+      "id": "portail-reference",
+      "title": "Portail & Reference",
+      "date": "2022 — 2025",
+      "tags": ["Python", "Flask", "FastAPI", "SQLAlchemy", "Alembic", "MySQL", "Redis", "TypeScript", "Lit.js", "Pydantic"],
+      "description": "Internal platform suite: Portail — a centralized web app for project/contract/billing/HR/helpdesk/comms with modular architecture and granular per-role permissions; Reference — the REST API powering the whole IS (~30 ORM models, 38 route modules, i18n, soft deletes, Content-Range pagination). Redis caching, query tuning, N+1 elimination, full CI/CD (flake8, mypy, pytest, Trivy).",
       "color": "#86efac",
       "video": "assets/videos/portail.webm",
       "poster": "assets/images/portail.svg"
-    },
-    {
-      "id": "reference",
-      "title": "Reference",
-      "date": "2023",
-      "tags": ["Python", "FastAPI", "SQLAlchemy", "Alembic", "MySQL", "Pydantic", "JWT"],
-      "description": "Reference REST API powering the internal information system (~30 ORM models, 38 route modules). i18n support, soft deletes, React Admin integration with Content-Range pagination. Full CI/CD with flake8, mypy, pytest, Trivy.",
-      "color": "#c4b5fd",
-      "video": "assets/videos/reference.webm",
-      "poster": "assets/images/reference.svg"
     }
   ]
 }
