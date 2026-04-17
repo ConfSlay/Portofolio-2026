@@ -547,9 +547,9 @@ a { color: inherit; text-decoration: none; }
   .hero-bg {
     background-size: cover;
     background-position: center;
-    opacity: 0.12;
-    mask-image: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.6) 0%, transparent 30%);
-    -webkit-mask-image: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.6) 0%, transparent 30%);
+    opacity: 0.22;
+    mask-image: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.7) 0%, transparent 35%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.7) 0%, transparent 35%);
   }
   .hero-grid {
     grid-template-columns: 1fr;

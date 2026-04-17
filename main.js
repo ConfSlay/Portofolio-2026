@@ -207,7 +207,7 @@
         if (!item) return;
         if (entry.isIntersecting) {
           item.classList.add('revealed');
-          if (video && !isMobile() && !reducedMotion() && video.querySelector('source')) {
+          if (video && !reducedMotion() && video.querySelector('source')) {
             video.play().catch(() => {});
           }
         } else if (video && !video.paused) {
