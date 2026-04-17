@@ -2,7 +2,7 @@
   "meta": {
     "name": "Richard PERRET",
     "title": "Software Engineer",
-    "tagline": "Turning real-world needs into scalable technical architectures — tech enthusiast, sports lover, problem solver",
+    "tagline": "Turning real-world needs into scalable technical architectures -tech enthusiast, sports lover, problem solver",
     "contact": {
       "email": "perretrichard1996@gmail.com",
       "linkedin": "https://www.linkedin.com/in/richardperret"
@@ -11,7 +11,7 @@
       { "src": "assets/images/japan-picture.png", "size": "hero", "alt": "Japan" },
       { "src": "assets/images/marathon-picture.jpg", "size": "square", "alt": "Marathon" },
       { "src": "assets/images/profile-picture.jpeg", "size": "square", "alt": "ProfilePicture" },
-      { "src": "assets/videos/fullplanche-pushup.mp4", "size": "wide", "alt": "FullPlanchePushUp" }
+      { "src": "assets/videos/fullplanche-pushup3.mp4", "size": "wide", "alt": "FullPlanchePushUp" }
     ]
   },
   "projects": [
@@ -22,7 +22,7 @@
       "tags": ["React", "TypeScript", "FastAPI", "PostgreSQL", "ChromaDB", "SSE"],
       "description": "Agentic loop architecture with real-time SSE streaming, dynamic context window management, and a configurable tool factory. Hybrid RAG over Google Docs with chunked embeddings and semantic search. Parallel tool execution, trilingual UI (FR/EN/ES).",
       "color": "#7dd3fc",
-      "video": "assets/videos/agentic.webm",
+      "video": "https://youtu.be/IVk2XVUg8pc?si=NWPZd0xZnRH0-Akv",
       "poster": "assets/images/agentic.svg"
     },
     {
@@ -38,11 +38,11 @@
     {
       "id": "portail-reference",
       "title": "Portail & Reference",
-      "date": "2022 — 2025",
+      "date": "2022 -2025",
       "tags": ["Python", "Flask", "FastAPI", "SQLAlchemy", "Alembic", "MySQL", "Redis", "TypeScript", "Lit.js", "Pydantic"],
-      "description": "Internal platform suite: Portail — a centralized web app for project/contract/billing/HR/helpdesk/comms with modular architecture and granular per-role permissions; Reference — the REST API powering the whole IS (~30 ORM models, 38 route modules, i18n, soft deletes, Content-Range pagination). Redis caching, query tuning, N+1 elimination, full CI/CD (flake8, mypy, pytest, Trivy).",
+      "description": "Internal platform suite: Portail -a centralized web app for project/contract/billing/HR/helpdesk/comms with modular architecture and granular per-role permissions; Reference -the REST API powering the whole IS (~30 ORM models, 38 route modules, i18n, soft deletes, Content-Range pagination). Redis caching, query tuning, N+1 elimination, full CI/CD (flake8, mypy, pytest, Trivy).",
       "color": "#86efac",
-      "video": "assets/videos/portail.webm",
+      "video": "https://youtu.be/1IEvk1-oDtA",
       "poster": "assets/images/portail.svg"
     }
   ]

@@ -11,6 +11,30 @@
   const PLAY_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
   const PAUSE_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
 
+  function youtubeId(url) {
+    if (!url) return null;
+    const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|shorts\/))([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
+  }
+
+  function youtubeEmbed(id, opts = {}) {
+    const params = new URLSearchParams({
+      autoplay: '1', mute: '1', loop: '1', playlist: id,
+      controls: '0', modestbranding: '1', playsinline: '1', rel: '0'
+    });
+    const iframe = el('iframe', {
+      src: `https://www.youtube.com/embed/${id}?${params}`,
+      frameBorder: '0',
+      allow: 'autoplay; encrypted-media',
+      allowFullscreen: false,
+      loading: 'lazy',
+      title: opts.alt || ''
+    });
+    iframe.style.cssText = 'width:100%;height:100%;border:0;pointer-events:none;';
+    if (opts.filter) iframe.style.filter = opts.filter;
+    return iframe;
+  }
+
   const el = (tag, attrs = {}, html) => {
     const n = document.createElement(tag);
     for (const k in attrs) {
@@ -52,16 +76,24 @@
 
     tiles.forEach(t => {
       const tile = el('div', { className: `m-tile size-${t.size || 'square'}` });
-      const isVideo = t.type === 'video' || /\.(webm|mp4)$/i.test(t.src || '');
-      if (isVideo) {
-        const v = el('video', {
-          muted: true, loop: true, playsInline: true, autoplay: true,
-          preload: 'metadata', poster: t.poster || ''
-        });
-        v.appendChild(el('source', { src: t.src }));
-        tile.appendChild(v);
+      const ytId = youtubeId(t.src);
+      if (ytId) {
+        tile.appendChild(youtubeEmbed(ytId, t));
       } else {
-        tile.appendChild(el('img', { src: t.src, alt: t.alt || '', loading: 'lazy' }));
+        const isVideo = t.type === 'video' || /\.(webm|mp4)$/i.test(t.src || '');
+        if (isVideo) {
+          const v = el('video', {
+            muted: true, loop: true, playsInline: true, autoplay: true,
+            preload: 'metadata', poster: t.poster || ''
+          });
+          v.appendChild(el('source', { src: t.src }));
+          if (t.filter) v.style.filter = t.filter;
+          tile.appendChild(v);
+        } else {
+          const img = el('img', { src: t.src, alt: t.alt || '', loading: 'lazy' });
+          if (t.filter) img.style.filter = t.filter;
+          tile.appendChild(img);
+        }
       }
       mosaic.appendChild(tile);
     });
@@ -83,32 +115,41 @@
     const card = el('div', { className: 'project-card' });
     const media = el('div', { className: 'project-media' });
 
-    const video = el('video', {
-      muted: true, loop: true, playsInline: true,
-      preload: 'metadata', poster: p.poster || ''
-    });
-    if (p.video) {
-      const ext = p.video.split('.').pop().toLowerCase();
-      const type = ext === 'mp4' ? 'video/mp4' : 'video/webm';
-      video.appendChild(el('source', { src: p.video, type }));
-    }
-    video.addEventListener('error', () => {}, true);
-    media.appendChild(video);
+    const ytId = youtubeId(p.video);
+    let video = null;
 
-    const btn = el('button', { className: 'play-btn', 'aria-label': 'Play/Pause', type: 'button' }, PLAY_ICON);
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      if (video.paused) {
-        video.play().catch(() => {});
-        btn.innerHTML = PAUSE_ICON;
-      } else {
-        video.pause();
-        btn.innerHTML = PLAY_ICON;
+    if (ytId) {
+      const iframe = youtubeEmbed(ytId, { alt: p.title });
+      iframe.style.pointerEvents = 'auto';
+      media.appendChild(iframe);
+    } else {
+      video = el('video', {
+        muted: true, loop: true, playsInline: true,
+        preload: 'metadata', poster: p.poster || ''
+      });
+      if (p.video) {
+        const ext = p.video.split('.').pop().toLowerCase();
+        const type = ext === 'mp4' ? 'video/mp4' : 'video/webm';
+        video.appendChild(el('source', { src: p.video, type }));
       }
-    });
-    video.addEventListener('play', () => { btn.innerHTML = PAUSE_ICON; });
-    video.addEventListener('pause', () => { btn.innerHTML = PLAY_ICON; });
-    media.appendChild(btn);
+      video.addEventListener('error', () => {}, true);
+      media.appendChild(video);
+
+      const btn = el('button', { className: 'play-btn', 'aria-label': 'Play/Pause', type: 'button' }, PLAY_ICON);
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        if (video.paused) {
+          video.play().catch(() => {});
+          btn.innerHTML = PAUSE_ICON;
+        } else {
+          video.pause();
+          btn.innerHTML = PLAY_ICON;
+        }
+      });
+      video.addEventListener('play', () => { btn.innerHTML = PAUSE_ICON; });
+      video.addEventListener('pause', () => { btn.innerHTML = PLAY_ICON; });
+      media.appendChild(btn);
+    }
 
     card.appendChild(media);
 
