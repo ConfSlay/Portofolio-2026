@@ -666,6 +666,13 @@ button.mosaic-reveal {
 }
 
 @media (max-width: 768px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+  .timeline-item {
+    scroll-snap-align: center;
+    scroll-margin-top: 2rem;
+  }
   .timeline-line,
   .timeline-progress { left: 18px; }
   .timeline-items { gap: 3rem; }
