@@ -56,11 +56,25 @@
     const links = [
       meta.contact.github && { href: meta.contact.github, label: 'GitHub', icon: ICONS.github },
       meta.contact.linkedin && { href: meta.contact.linkedin, label: 'LinkedIn', icon: ICONS.linkedin },
-      meta.contact.email && { href: `mailto:${meta.contact.email}`, label: 'Email', icon: ICONS.email }
+      meta.contact.email && { href: '#', label: 'Email', icon: ICONS.email, email: meta.contact.email }
     ].filter(Boolean);
     links.forEach(l => {
       const a = el('a', { href: l.href, 'aria-label': l.label, rel: 'noopener' }, l.icon);
-      if (l.href.startsWith('http')) a.target = '_blank';
+      if (l.email) {
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          navigator.clipboard.writeText(l.email).then(() => {
+            a.classList.add('copied');
+            const orig = a.innerHTML;
+            a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+            setTimeout(() => { a.innerHTML = orig; a.classList.remove('copied'); }, 1500);
+          }).catch(() => {
+            window.prompt('Copy email:', l.email);
+          });
+        });
+      } else if (l.href.startsWith('http')) {
+        a.target = '_blank';
+      }
       contact.appendChild(a);
     });
 
@@ -110,18 +124,15 @@
 
   function createProjectCard(p) {
     const item = el('article', { className: 'timeline-item', style: { '--project-color': p.color } });
-    item.appendChild(el('div', { className: 'timeline-node' }));
 
-    const card = el('div', { className: 'project-card' });
-    const media = el('div', { className: 'project-media' });
-
+    const mediaWrap = el('div', { className: 'project-media' });
     const ytId = youtubeId(p.video);
     let video = null;
 
     if (ytId) {
       const iframe = youtubeEmbed(ytId, { alt: p.title });
       iframe.style.pointerEvents = 'auto';
-      media.appendChild(iframe);
+      mediaWrap.appendChild(iframe);
     } else {
       video = el('video', {
         muted: true, loop: true, playsInline: true,
@@ -133,7 +144,7 @@
         video.appendChild(el('source', { src: p.video, type }));
       }
       video.addEventListener('error', () => {}, true);
-      media.appendChild(video);
+      mediaWrap.appendChild(video);
 
       const btn = el('button', { className: 'play-btn', 'aria-label': 'Play/Pause', type: 'button' }, PLAY_ICON);
       btn.addEventListener('click', e => {
@@ -148,10 +159,10 @@
       });
       video.addEventListener('play', () => { btn.innerHTML = PAUSE_ICON; });
       video.addEventListener('pause', () => { btn.innerHTML = PLAY_ICON; });
-      media.appendChild(btn);
+      mediaWrap.appendChild(btn);
     }
 
-    card.appendChild(media);
+    const node = el('div', { className: 'timeline-node' });
 
     const body = el('div', { className: 'project-body' });
     const header = el('div', { className: 'project-header' });
@@ -173,8 +184,9 @@
       body.appendChild(link);
     }
 
-    card.appendChild(body);
-    item.appendChild(card);
+    item.appendChild(mediaWrap);
+    item.appendChild(node);
+    item.appendChild(body);
     return { item, video };
   }
 
@@ -202,6 +214,14 @@
     }, { threshold: 0.35 });
 
     entries.forEach(e => observer.observe(e.item));
+
+    const focusObserver = new IntersectionObserver((items) => {
+      items.forEach(entry => {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+      });
+    }, { threshold: 0.8 });
+
+    entries.forEach(e => focusObserver.observe(e.item));
   }
 
   function initProgressLine() {
