@@ -115,6 +115,24 @@
       }
       mosaic.appendChild(tile);
     });
+
+    mosaic.querySelectorAll('.m-tile').forEach((t, i) => {
+      t.style.setProperty('--tile-delay', `${i * 80}ms`);
+    });
+
+    const btn = document.querySelector('.mosaic-reveal');
+    const wrap = document.querySelector('.hero-mosaic-wrap');
+    if (btn && wrap) {
+      const stackCards = btn.querySelectorAll('.stack-card');
+      tiles.slice(0, 3).forEach((t, i) => {
+        if (stackCards[i] && !youtubeId(t.src) && !/\.(webm|mp4)$/i.test(t.src)) {
+          stackCards[i].style.backgroundImage = `url(${t.src})`;
+        }
+      });
+      btn.addEventListener('click', () => {
+        wrap.classList.add('revealed');
+      });
+    }
   }
 
   function renderAbout(about) {
