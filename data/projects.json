@@ -7,30 +7,31 @@
       "email": "perretrichard1996@gmail.com",
       "linkedin": "https://www.linkedin.com/in/richardperret"
     },
+    "heroBackground": "assets/images/hero-bg.jpg",
     "mosaic": [
       { "src": "assets/images/japan-picture.png", "size": "hero", "alt": "Japan" },
       { "src": "assets/images/marathon-picture.jpg", "size": "square", "alt": "Marathon" },
-      { "src": "assets/images/profile-picture.jpeg", "size": "square", "alt": "ProfilePicture" },
+      { "src": "assets/images/airport-picture.png", "size": "square", "alt": "ProfilePicture" },
       { "src": "assets/videos/fullplanche-pushup3.mp4", "size": "wide", "alt": "FullPlanchePushUp" }
     ]
   },
   "projects": [
     {
-      "id": "agentic-platform",
-      "title": "Agentic AI Platform",
+      "id": "p9p",
+      "title": "P9P",
       "date": "2026",
-      "tags": ["React", "TypeScript", "FastAPI", "PostgreSQL", "ChromaDB", "SSE"],
-      "description": "An AI assistant platform that reasons, searches and acts autonomously in real time. It streams its thinking live, pulls answers from your Google Docs via semantic search, and runs multiple tools in parallel, all through a clean trilingual interface (FR/EN/ES).",
+      "tags": ["React", "TypeScript", "Python", "FastAPI", "SQLAlchemy", "Alembic", "PostgreSQL", "ChromaDB", "Docker", "GitLab CI/CD"],
+      "description": "Internal conversational AI agent I designed and built solo. Ask questions about clients, CRM data and history in natural language. Execute actions via tools connected to internal APIs, schedule automated jobs (reports, batch processing). Configurable roles/scenarios, RAG over business docs, multilingual interface (FR/EN/ES).",
       "color": "#7dd3fc",
       "video": "https://youtu.be/KYxBHGTCnzo",
       "poster": "assets/images/agentic.svg"
     },
     {
       "id": "arya",
-      "title": "Arya",
+      "title": "Project Arya",
       "date": "2025",
-      "tags": ["React Native", "Expo", "TypeScript", "NativeWind", "Flask", "PostgreSQL"],
-      "description": "A mobile app I built to coach myself and others, whatever the sport. You set your goals, follow tailored workouts, track your metrics and watch your progression over time. Works on both iOS and Android.",
+      "tags": ["React Native", "Expo", "TypeScript", "NativeWind", "Flask", "SQLAlchemy", "Alembic", "PostgreSQL", "Docker", "GitLab CI/CD"],
+      "description": "Personal side project, still in active development. A cross-platform mobile app for sports coaching and performance tracking across any discipline. Set goals, follow tailored workouts, track metrics and watch progression over time. Built from scratch on my own time.",
       "color": "#f0abfc",
       "video": "https://youtube.com/shorts/HcZu3vOubSc?feature=share",
       "poster": "assets/images/arya.svg"
@@ -39,8 +40,8 @@
       "id": "portail-reference",
       "title": "Portail & Reference",
       "date": "2022 -2025",
-      "tags": ["Python", "Flask", "FastAPI", "SQLAlchemy", "Alembic", "MySQL", "Redis", "TypeScript", "Lit.js", "Pydantic"],
-      "description": "The backbone of the company's information system, built over three years. Portail is the web app where teams manage projects, contracts, billing, HR and support, with each role seeing exactly what it needs. Reference is the REST API behind it all, serving every internal tool. I focused heavily on performance (caching, query optimization) and code quality (typing, tests, security scans).",
+      "tags": ["Python", "Flask", "WTForms", "SQLAlchemy", "Alembic", "MySQL", "Redis", "TypeScript", "Lit.js", "Docker", "GitLab CI/CD"],
+      "description": "The backbone of the company's information system, built over three years with an amazing team. Portail is the web app where teams manage projects, contracts, billing, HR and support, with each role seeing exactly what it needs. Reference is the REST API behind it all, serving every internal tool. Great coworkers, strong code reviews, and a shared obsession for performance and quality.",
       "color": "#86efac",
       "video": "https://youtu.be/1IEvk1-oDtA",
       "poster": "assets/images/portail.svg"

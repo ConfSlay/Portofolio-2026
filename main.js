@@ -20,7 +20,7 @@
   function youtubeEmbed(id, opts = {}) {
     const params = new URLSearchParams({
       autoplay: '1', mute: '1', loop: '1', playlist: id,
-      controls: '0', modestbranding: '1', playsinline: '1', rel: '0'
+      controls: opts.controls ? '1' : '0', modestbranding: '1', playsinline: '1', rel: '0'
     });
     const iframe = el('iframe', {
       src: `https://www.youtube.com/embed/${id}?${params}`,
@@ -30,7 +30,7 @@
       loading: 'lazy',
       title: opts.alt || ''
     });
-    iframe.style.cssText = 'width:100%;height:100%;border:0;pointer-events:none;';
+    iframe.style.cssText = `width:100%;height:100%;border:0;pointer-events:${opts.controls ? 'auto' : 'none'};`;
     if (opts.filter) iframe.style.filter = opts.filter;
     return iframe;
   }
@@ -79,6 +79,10 @@
     });
 
     document.title = `${meta.name} — ${meta.title}`;
+
+    if (meta.heroBackground) {
+      document.querySelector('.hero-bg')?.style.setProperty('--hero-bg', `url(${meta.heroBackground})`);
+    }
 
     renderMosaic(meta.mosaic);
   }
@@ -130,8 +134,7 @@
     let video = null;
 
     if (ytId) {
-      const iframe = youtubeEmbed(ytId, { alt: p.title });
-      iframe.style.pointerEvents = 'auto';
+      const iframe = youtubeEmbed(ytId, { alt: p.title, controls: true });
       mediaWrap.appendChild(iframe);
     } else {
       video = el('video', {
