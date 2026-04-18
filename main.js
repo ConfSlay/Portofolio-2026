@@ -265,8 +265,26 @@
     update();
   }
 
+  function initSmoothLinks() {
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        const html = document.documentElement;
+        const prevSnap = html.style.scrollSnapType;
+        html.style.scrollSnapType = 'none';
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => { html.style.scrollSnapType = prevSnap; }, 800);
+      });
+    });
+  }
+
   async function init() {
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     document.getElementById('year').textContent = new Date().getFullYear();
+    initSmoothLinks();
     try {
       const res = await fetch('data/projects.json');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
